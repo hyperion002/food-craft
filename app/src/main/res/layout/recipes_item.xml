@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="result"
+            type="com.example.foodcraft.models.Result" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialcardview_recipes"
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                loadImageFromUrl="@{result.image}"
+                android:id="@+id/imageview_recipe"
+                android:layout_width="200dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textview_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/courgette"
+                android:maxLines="2"
+                android:text="@{result.title}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageview_recipe"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Sahi Paneer" />
+
+            <TextView
+                android:id="@+id/textview_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="@{result.summary}"
+                app:layout_constraintEnd_toEndOf="@+id/textview_title"
+                app:layout_constraintStart_toStartOf="@+id/textview_title"
+                app:layout_constraintTop_toBottomOf="@+id/textview_title"
+                tools:text="Delicious Sahi Paneer from Punjabi Bagh Restraunt of Ludhiana" />
+
+            <ImageView
+                android:id="@+id/imageview_favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textview_description"
+                app:layout_constraintTop_toBottomOf="@+id/textview_description"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ic_favourite"
+                app:tint="@color/red" />
+
+            <TextView
+                android:id="@+id/textview_favourite_count"
+                setNumberOfLikes="@{result.aggregateLikes}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageview_favourite"
+                app:layout_constraintStart_toStartOf="@+id/imageview_favourite"
+                app:layout_constraintTop_toBottomOf="@+id/imageview_favourite"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="100" />
+
+            <ImageView
+                android:id="@+id/imageview_cook_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                app:layout_constraintStart_toEndOf="@+id/imageview_favourite"
+                app:layout_constraintTop_toTopOf="@+id/imageview_favourite"
+                app:srcCompat="@drawable/ic_cook_time"
+                app:tint="@color/yellow" />
+
+            <TextView
+                android:id="@+id/textview_cook_time"
+                setNumberOfMinutes="@{result.readyInMinutes}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/yellow"
+                app:layout_constraintEnd_toEndOf="@+id/imageview_cook_time"
+                app:layout_constraintStart_toStartOf="@+id/imageview_cook_time"
+                app:layout_constraintTop_toBottomOf="@+id/imageview_cook_time"
+                tools:text="50" />
+
+            <ImageView
+                android:id="@+id/imageview_vegan"
+                applyVeganColor="@{result.vegan}"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="24dp"
+                app:layout_constraintStart_toEndOf="@+id/imageview_cook_time"
+                app:layout_constraintTop_toTopOf="@+id/imageview_cook_time"
+                app:srcCompat="@drawable/ic_vegan" />
+
+            <TextView
+                android:id="@+id/textview_vegan"
+                applyVeganColor="@{result.vegan}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/imageview_vegan"
+                app:layout_constraintStart_toStartOf="@+id/imageview_vegan"
+                app:layout_constraintTop_toBottomOf="@+id/imageview_vegan"
+                android:text="Vegan" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
