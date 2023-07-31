@@ -1,4 +1,4 @@
-package com.example.foodcraft
+package com.example.foodcraft.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +7,11 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.foodcraft.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
