@@ -1,15 +1,34 @@
 package com.example.foodcraft.bindingadapters
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import androidx.navigation.findNavController
 import coil.load
 import com.example.foodcraft.R
+import com.example.foodcraft.models.Result
+import com.example.foodcraft.ui.fragments.recipes.RecipesFragmentDirections
+import com.google.android.material.card.MaterialCardView
+import org.jsoup.Jsoup
 
 class RecipesItemBindings {
     companion object {
+
+        @BindingAdapter("onRecipeClickListener")
+        @JvmStatic
+        fun onRecipeClickListener(recipesItem: MaterialCardView, result: Result) {
+            recipesItem.setOnClickListener {
+                try {
+                    val action = RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(result)
+                    recipesItem.findNavController().navigate(action)
+                } catch (e: Exception) {
+                    Log.d("onRecipeClickListener", e.toString())
+                }
+            }
+        }
 
         @BindingAdapter("loadImageFromUrl")
         @JvmStatic
@@ -45,6 +64,15 @@ class RecipesItemBindings {
                         view.setColorFilter(ContextCompat.getColor(view.context, R.color.green))
                     }
                 }
+            }
+        }
+
+        @BindingAdapter("parseHtml")
+        @JvmStatic
+        fun parseHtml(textView: TextView, description: String?) {
+            if (description != null) {
+                val parsedDescription = Jsoup.parse(description).text()
+                textView.text = parsedDescription
             }
         }
     }
