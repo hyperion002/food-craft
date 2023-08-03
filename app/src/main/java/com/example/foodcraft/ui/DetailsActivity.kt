@@ -10,6 +10,7 @@ import com.example.foodcraft.databinding.ActivityDetailsBinding
 import com.example.foodcraft.ui.fragments.recipes.ingredients.IngredientsFragment
 import com.example.foodcraft.ui.fragments.recipes.instructions.InstructionsFragment
 import com.example.foodcraft.ui.fragments.recipes.overview.OverviewFragment
+import com.example.foodcraft.util.Constants.Companion.RECIPE_RESULT_BUNDLE
 
 class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
@@ -36,7 +37,7 @@ class DetailsActivity : AppCompatActivity() {
         }
 
         val resultBundle = Bundle()
-        resultBundle.putParcelable("recipeBundle", args.result)
+        resultBundle.putParcelable(RECIPE_RESULT_BUNDLE, args.result)
 
         val adapter = PagerAdapter(
             resultBundle,

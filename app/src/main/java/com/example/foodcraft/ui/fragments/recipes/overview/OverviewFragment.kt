@@ -13,6 +13,7 @@ import com.example.foodcraft.R
 import com.example.foodcraft.bindingadapters.RecipesItemBindings
 import com.example.foodcraft.databinding.FragmentOverviewBinding
 import com.example.foodcraft.models.Result
+import com.example.foodcraft.util.Constants.Companion.RECIPE_RESULT_BUNDLE
 
 class OverviewFragment : Fragment() {
 
@@ -25,7 +26,7 @@ class OverviewFragment : Fragment() {
     ): View {
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
 
-        val recipeBundle: Result? = arguments?.getParcelable("recipeBundle")
+        val recipeBundle: Result? = arguments?.getParcelable(RECIPE_RESULT_BUNDLE)
 
         binding.imageviewMain.load(recipeBundle?.image)
         binding.textviewRecipeTitle.text = recipeBundle?.title
