@@ -3,8 +3,10 @@ package com.example.foodcraft.util
 class Constants {
     companion object {
         const val API_KEY = "2a147263587443da88d176c63803f825"
-//        const val API_KEY = "ac3dd11f23ae432a932fd2983d71890f"
+        const val BASE_INGREDIENT_IMAGE_URL = "https://spoonacular.com/cdn/ingredients_100x100/"
         const val BASE_URL = "https://api.spoonacular.com"
+
+        const val RECIPE_RESULT_BUNDLE = "recipeBundle"
 
         // API Query Keys
         const val QUERY_SEARCH = "query"
