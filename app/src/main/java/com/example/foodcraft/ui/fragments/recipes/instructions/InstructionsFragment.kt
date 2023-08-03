@@ -1,4 +1,4 @@
-package com.example.foodcraft.ui.fragments.instructions
+package com.example.foodcraft.ui.fragments.recipes.instructions
 
 import android.os.Bundle
 import android.view.LayoutInflater

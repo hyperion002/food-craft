@@ -1,4 +1,4 @@
-package com.example.foodcraft.ui.fragments.overview
+package com.example.foodcraft.ui.fragments.recipes.overview
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,7 +23,6 @@ class OverviewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
 
         val recipeBundle: Result? = arguments?.getParcelable("recipeBundle")
