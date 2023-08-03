@@ -23,7 +23,7 @@ class IngredientsAdapter : RecyclerView.Adapter<IngredientsAdapter.IngredientsVi
     }
 
     override fun onBindViewHolder(holder: IngredientsViewHolder, position: Int) {
-        holder.binding.imageviewIngredient.load(BASE_INGREDIENT_IMAGE_URL + ingredientsList[position]) {
+        holder.binding.imageviewIngredient.load(BASE_INGREDIENT_IMAGE_URL + ingredientsList[position].image) {
             crossfade(600)
             error(R.drawable.ic_error_placeholder)
         }
