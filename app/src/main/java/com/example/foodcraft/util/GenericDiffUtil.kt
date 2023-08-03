@@ -1,11 +1,10 @@
 package com.example.foodcraft.util
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.foodcraft.models.Result
 
-class RecipesDiffUtil(
-    private val oldLIst: List<Result>,
-    private val newList: List<Result>
+class GenericDiffUtil<T>(
+    private val oldLIst: List<T>,
+    private val newList: List<T>
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldLIst.size
 
