@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
 import com.example.foodcraft.adapters.PagerAdapter
 import com.example.foodcraft.databinding.ActivityDetailsBinding
-import com.example.foodcraft.ui.fragments.ingredients.IngredientsFragment
-import com.example.foodcraft.ui.fragments.instructions.InstructionsFragment
-import com.example.foodcraft.ui.fragments.overview.OverviewFragment
+import com.example.foodcraft.ui.fragments.recipes.ingredients.IngredientsFragment
+import com.example.foodcraft.ui.fragments.recipes.instructions.InstructionsFragment
+import com.example.foodcraft.ui.fragments.recipes.overview.OverviewFragment
 
 class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
