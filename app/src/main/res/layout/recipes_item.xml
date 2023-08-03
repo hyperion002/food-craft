@@ -15,6 +15,7 @@
         android:id="@+id/materialcardview_recipes"
         style="?attr/materialCardViewElevatedStyle"
         android:layout_width="match_parent"
+        onRecipeClickListener="@{result}"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
@@ -61,14 +62,14 @@
                 android:layout_marginTop="16dp"
                 android:ellipsize="end"
                 android:maxLines="3"
-                android:text="@{result.summary}"
+                parseHtml="@{result.summary}"
                 app:layout_constraintEnd_toEndOf="@+id/textview_title"
                 app:layout_constraintStart_toStartOf="@+id/textview_title"
                 app:layout_constraintTop_toBottomOf="@+id/textview_title"
                 tools:text="Delicious Sahi Paneer from Punjabi Bagh Restraunt of Ludhiana" />
 
             <ImageView
-                android:id="@+id/imageview_favourite"
+                android:id="@+id/imageview_likes_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -76,11 +77,11 @@
                 app:layout_constraintStart_toStartOf="@+id/textview_description"
                 app:layout_constraintTop_toBottomOf="@+id/textview_description"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/ic_favourite"
+                app:srcCompat="@drawable/ic_likes"
                 app:tint="@color/red" />
 
             <TextView
-                android:id="@+id/textview_favourite_count"
+                android:id="@+id/textview_likes_count"
                 setNumberOfLikes="@{result.aggregateLikes}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,9 +89,9 @@
                 android:textAlignment="center"
                 android:textColor="@color/red"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageview_favourite"
-                app:layout_constraintStart_toStartOf="@+id/imageview_favourite"
-                app:layout_constraintTop_toBottomOf="@+id/imageview_favourite"
+                app:layout_constraintEnd_toEndOf="@+id/imageview_likes_count"
+                app:layout_constraintStart_toStartOf="@+id/imageview_likes_count"
+                app:layout_constraintTop_toBottomOf="@+id/imageview_likes_count"
                 app:layout_constraintVertical_bias="0.0"
                 tools:text="100" />
 
@@ -99,8 +100,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                app:layout_constraintStart_toEndOf="@+id/imageview_favourite"
-                app:layout_constraintTop_toTopOf="@+id/imageview_favourite"
+                app:layout_constraintStart_toEndOf="@+id/imageview_likes_count"
+                app:layout_constraintTop_toTopOf="@+id/imageview_likes_count"
                 app:srcCompat="@drawable/ic_cook_time"
                 app:tint="@color/yellow" />
 
