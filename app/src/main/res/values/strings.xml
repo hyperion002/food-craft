@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">FoodCraft</string>
 
-<!--    Fragment Titles -->
+    <!--    Fragment Titles -->
     <string name="recipes_fragment_title">Recipes</string>
     <string name="favourite_recipes_fragment_title">Favourite Recipes</string>
     <string name="food_joke_fragment_title">Food Joke</string>
 
-<!--    Meal Types BottomSheet  -->
+    <!--    Meal Types BottomSheet  -->
     <string name="meal_type">Meal Type</string>
     <string name="main_course">Main Course</string>
     <string name="side_dish">Side Dish</string>
@@ -23,7 +23,7 @@
     <string name="snack">Snack</string>
     <string name="drink">Drink</string>
 
-<!--    Diet Type BottomSheet   -->
+    <!--    Diet Type BottomSheet   -->
     <string name="diet_type">Diet Type</string>
     <string name="gluten_free">Gluten Free</string>
     <string name="ketogenic">Ketogenic</string>
@@ -37,7 +37,12 @@
     <string name="ovo_vegetarian">Ovo-Vegetarian</string>
     <string name="low_fodmap">Low FODMAP</string>
 
-<!--    BottomSheet Apply Button-->
+    <!--    BottomSheet Apply Button-->
     <string name="apply">Apply</string>
     <string name="search">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dairy_free">Dairy Free</string>
+    <string name="healthy">Healthy</string>
+    <string name="cheap">Cheap</string>
 </resources>
