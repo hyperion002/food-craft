@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="mainViewModel"
             type="com.example.foodcraft.viewmodels.MainViewModel" />
@@ -20,14 +21,14 @@
             android:layout_height="0dp"
             android:layout_margin="8dp"
             android:orientation="vertical"
-            tools:itemCount="7"
-            app:shimmer_recycler_item_count="7"
-            app:shimmer_recycler_layout="@layout/recipes_placeholder"
-            tools:listitem="@layout/recipes_item"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shimmer_recycler_item_count="7"
+            app:shimmer_recycler_layout="@layout/recipes_placeholder"
+            tools:itemCount="7"
+            tools:listitem="@layout/recipes_item" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_recipes"
@@ -44,32 +45,32 @@
 
         <ImageView
             android:id="@+id/imageview_error"
+            readApiResponseForImage="@{mainViewModel.recipesResponse}"
+            readDatabaseForImage="@{mainViewModel.readRecipes}"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:alpha="0.5"
-            readApiResponseForImage="@{mainViewModel.recipesResponse}"
-            readDatabaseForImage="@{mainViewModel.readRecipes}"
             android:importantForAccessibility="no"
             android:src="@drawable/ic_sad"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:visibility="invisible"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3" />
 
         <TextView
             android:id="@+id/textview_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="No Internet Connection"
-            android:layout_marginTop="8dp"
-            android:visibility="invisible"
             readApiResponseForText="@{mainViewModel.recipesResponse}"
             readDatabaseForText="@{mainViewModel.readRecipes}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/imageview_error"
             app:layout_constraintStart_toStartOf="@+id/imageview_error"
-            app:layout_constraintTop_toBottomOf="@+id/imageview_error" />
+            app:layout_constraintTop_toBottomOf="@+id/imageview_error"
+            tools:text="No Internet Connection" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
