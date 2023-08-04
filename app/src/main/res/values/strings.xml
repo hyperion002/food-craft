@@ -48,4 +48,7 @@
     <!--   details_menu resources -->
     <string name="save_to_favourites">Save to Favourites</string>
     <string name="no_favourite_recipes">No Favourite Recipes</string>
+
+    <!--    favourites_recipe_menu-->
+    <string name="delete_favourite">Delete Favourite</string>
 </resources>
