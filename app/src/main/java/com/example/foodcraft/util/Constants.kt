@@ -1,8 +1,10 @@
 package com.example.foodcraft.util
 
 class Constants {
+
     companion object {
-        const val API_KEY = "[YOUR_API_KEY_HERE]"
+
+        const val API_KEY = "API_KEY"
         const val BASE_INGREDIENT_IMAGE_URL = "https://spoonacular.com/cdn/ingredients_100x100/"
         const val BASE_URL = "https://api.spoonacular.com"
 
@@ -21,6 +23,7 @@ class Constants {
         const val DATABASE_NAME = "recipes_database"
         const val RECIPES_TABLE = "recipes_table"
         const val FAVOURITE_RECIPES_TABLE = "favourite_recipes_table"
+        const val FOOD_JOKE_TABLE = "food_joke_table"
 
         // BottomSheet & Preferences
         const val DEFAULT_RECIPES_NUMBER = "50"
