@@ -14,8 +14,8 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialcardview_recipes"
         style="?attr/materialCardViewElevatedStyle"
-        android:layout_width="match_parent"
         onRecipeClickListener="@{result}"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
@@ -26,8 +26,8 @@
             android:layout_height="match_parent">
 
             <ImageView
-                loadImageFromUrl="@{result.image}"
                 android:id="@+id/imageview_recipe"
+                loadImageFromUrl="@{result.image}"
                 android:layout_width="200dp"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
@@ -57,12 +57,12 @@
 
             <TextView
                 android:id="@+id/textview_description"
+                parseHtml="@{result.summary}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:ellipsize="end"
                 android:maxLines="3"
-                parseHtml="@{result.summary}"
                 app:layout_constraintEnd_toEndOf="@+id/textview_title"
                 app:layout_constraintStart_toStartOf="@+id/textview_title"
                 app:layout_constraintTop_toBottomOf="@+id/textview_title"
@@ -132,11 +132,11 @@
                 applyVeganColor="@{result.vegan}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/vegan"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="@+id/imageview_vegan"
                 app:layout_constraintStart_toStartOf="@+id/imageview_vegan"
-                app:layout_constraintTop_toBottomOf="@+id/imageview_vegan"
-                android:text="Vegan" />
+                app:layout_constraintTop_toBottomOf="@+id/imageview_vegan" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
