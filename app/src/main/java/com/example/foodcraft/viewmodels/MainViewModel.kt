@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.foodcraft.data.Repository
+import com.example.foodcraft.data.database.entities.FavouritesEntity
 import com.example.foodcraft.data.database.entities.RecipesEntity
 import com.example.foodcraft.models.FoodRecipe
 import com.example.foodcraft.util.NetworkResult
@@ -26,11 +27,30 @@ class MainViewModel @Inject constructor(
 ) : AndroidViewModel(application) {
 
     // Room Database
-    val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readDatabase().asLiveData()
+    val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readRecipes().asLiveData()
+    val readFavouriteRecipes: LiveData<List<FavouritesEntity>> = repository.local.readFavouriteRecipes().asLiveData()
 
     private fun insertRecipes(recipesEntity: RecipesEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertRecipes(recipesEntity)
+        }
+    }
+
+    private fun insertFavouriteRecipe(favouritesEntity: FavouritesEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.insertFavouriteRecipe(favouritesEntity)
+        }
+    }
+
+    private fun deleteFavouriteRecipe(favouritesEntity: FavouritesEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteFavouriteRecipe(favouritesEntity)
+        }
+    }
+
+    private fun deleteAllFavouriteRecipe() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteAllFavouriteRecipes()
         }
     }
 
