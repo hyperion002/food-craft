@@ -18,7 +18,7 @@ class FavouriteRecipesFragment : Fragment() {
     private var _binding: FragmentFavouriteRecipesBinding? = null
     private val binding get() = _binding!!
 
-    private val favouriteRecipesAdapter: FavouriteRecipesAdapter by lazy { FavouriteRecipesAdapter() }
+    private val favouriteRecipesAdapter: FavouriteRecipesAdapter by lazy { FavouriteRecipesAdapter(requireActivity()) }
     private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreateView(
