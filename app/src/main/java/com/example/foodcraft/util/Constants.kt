@@ -2,7 +2,7 @@ package com.example.foodcraft.util
 
 class Constants {
     companion object {
-        const val API_KEY = "[YOUR_API_KEY_HERE]"
+        const val API_KEY = "5a5e811ece3f4bfa9ef161b55c530d53"
         const val BASE_INGREDIENT_IMAGE_URL = "https://spoonacular.com/cdn/ingredients_100x100/"
         const val BASE_URL = "https://api.spoonacular.com"
 

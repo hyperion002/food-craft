@@ -35,11 +35,11 @@ class OverviewFragment : Fragment() {
         RecipesItemBindings.parseHtml(binding.textviewSummary, recipeBundle?.summary)
 
         setCheckColor(recipeBundle?.vegetarian, binding.imageviewVegetarianCheck, binding.textviewVegetarianCheck)
-        setCheckColor(recipeBundle?.vegetarian, binding.imageviewVeganCheck, binding.textviewVeganCheck)
-        setCheckColor(recipeBundle?.vegetarian, binding.imageviewCheap, binding.textviewCheap)
-        setCheckColor(recipeBundle?.vegetarian, binding.imageviewDairyFree, binding.textviewDairyFree)
-        setCheckColor(recipeBundle?.vegetarian, binding.imageviewGlutenFree, binding.textviewGlutenFree)
-        setCheckColor(recipeBundle?.vegetarian, binding.imageviewHealthy, binding.textviewHealthy)
+        setCheckColor(recipeBundle?.vegan, binding.imageviewVeganCheck, binding.textviewVeganCheck)
+        setCheckColor(recipeBundle?.cheap, binding.imageviewCheap, binding.textviewCheap)
+        setCheckColor(recipeBundle?.dairyFree, binding.imageviewDairyFree, binding.textviewDairyFree)
+        setCheckColor(recipeBundle?.glutenFree, binding.imageviewGlutenFree, binding.textviewGlutenFree)
+        setCheckColor(recipeBundle?.veryHealthy, binding.imageviewHealthy, binding.textviewHealthy)
 
         return binding.root
     }
