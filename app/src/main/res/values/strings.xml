@@ -52,4 +52,8 @@
     <!--    favourites_recipe_menu-->
     <string name="delete_favourite">Delete Favourite</string>
     <string name="delete_all">Delete All</string>
+
+    <!--    FoodJokeFragment res-->
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus purus quis sagittis pharetra. Donec vitae pulvinar dolor. Nam scelerisque eget velit nec tristique. Pellentesque quis interdum massa. Nullam molestie vestibulum nisi, ac fringilla neque pulvinar sit amet</string>
+    <string name="error">Error</string>
 </resources>
