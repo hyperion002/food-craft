@@ -51,4 +51,5 @@
 
     <!--    favourites_recipe_menu-->
     <string name="delete_favourite">Delete Favourite</string>
+    <string name="delete_all">Delete All</string>
 </resources>

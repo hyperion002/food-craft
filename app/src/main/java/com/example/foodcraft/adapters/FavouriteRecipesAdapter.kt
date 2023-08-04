@@ -195,4 +195,10 @@ class FavouriteRecipesAdapter(
         ).setAction("Okay") {}
             .show()
     }
+
+    fun clearContextualActionMode() {
+        if (this::actionModeGlobal.isInitialized) {
+            actionModeGlobal.finish()
+        }
+    }
 }

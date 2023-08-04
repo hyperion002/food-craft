@@ -2,15 +2,20 @@ package com.example.foodcraft.ui.fragments.favouriterecipes
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.foodcraft.R
 import com.example.foodcraft.adapters.FavouriteRecipesAdapter
 import com.example.foodcraft.databinding.FragmentFavouriteRecipesBinding
 import com.example.foodcraft.viewmodels.MainViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,6 +42,8 @@ class FavouriteRecipesFragment : Fragment() {
 
         setUpRecyclerView(binding.recyclerViewFavouriteRecipes)
 
+        setHasOptionsMenu(true)
+
         return binding.root
     }
 
@@ -47,6 +54,27 @@ class FavouriteRecipesFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+        favouriteRecipesAdapter.clearContextualActionMode()
         _binding = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.favourite_recipes_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.delete_all_favourite_recieps) {
+            mainViewModel.deleteAllFavouriteRecipe()
+            showSnackBar("All Recipes Removed")
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showSnackBar(message: String) {
+        Snackbar.make(
+            binding.root,
+            message,
+            Snackbar.LENGTH_SHORT
+        ).show()
     }
 }
