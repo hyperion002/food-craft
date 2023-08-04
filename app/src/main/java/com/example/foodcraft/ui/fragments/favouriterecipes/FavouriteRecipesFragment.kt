@@ -19,18 +19,18 @@ class FavouriteRecipesFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val favouriteRecipesAdapter: FavouriteRecipesAdapter by lazy { FavouriteRecipesAdapter() }
-    private val mainVIewModel: MainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFavouriteRecipesBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        binding.mainViewModel = mainViewModel
+        binding.favouriteRecipesAdapter = favouriteRecipesAdapter
 
         setUpRecyclerView(binding.recyclerViewFavouriteRecipes)
-        mainVIewModel.readFavouriteRecipes.observe(viewLifecycleOwner) { favouritesEntity ->
-            favouriteRecipesAdapter.setData(favouritesEntity)
-        }
 
         return binding.root
     }
