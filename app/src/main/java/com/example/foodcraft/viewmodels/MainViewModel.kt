@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.foodcraft.data.Repository
-import com.example.foodcraft.data.database.RecipesEntity
+import com.example.foodcraft.data.database.entities.RecipesEntity
 import com.example.foodcraft.models.FoodRecipe
 import com.example.foodcraft.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel

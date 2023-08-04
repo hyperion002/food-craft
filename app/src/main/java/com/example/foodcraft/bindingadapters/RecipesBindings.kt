@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.example.foodcraft.data.database.RecipesEntity
+import com.example.foodcraft.data.database.entities.RecipesEntity
 import com.example.foodcraft.models.FoodRecipe
 import com.example.foodcraft.util.NetworkResult
 
