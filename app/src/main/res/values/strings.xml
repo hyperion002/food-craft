@@ -40,9 +40,11 @@
     <!--    BottomSheet Apply Button-->
     <string name="apply">Apply</string>
     <string name="search">Search</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--    Attributes for DetailsActivity-->
     <string name="dairy_free">Dairy Free</string>
     <string name="healthy">Healthy</string>
     <string name="cheap">Cheap</string>
+
+    <!--   details_menu resources -->
+    <string name="save_to_favourites">Save to Favourites</string>
 </resources>
