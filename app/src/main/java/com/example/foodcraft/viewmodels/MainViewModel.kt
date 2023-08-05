@@ -57,7 +57,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun inserFoodJoke(foodJokeEntity: FoodJokeEntity) {
+    fun insertFoodJoke(foodJokeEntity: FoodJokeEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertFoodJoke(foodJokeEntity)
         }
@@ -179,7 +179,7 @@ class MainViewModel @Inject constructor(
 
     private fun offlineCacheFoodJoke(foodJoke: FoodJoke) {
         val foodJokeEntity = FoodJokeEntity(foodJoke)
-        inserFoodJoke(foodJokeEntity)
+        insertFoodJoke(foodJokeEntity)
     }
 
     private fun hasInternetConnection(): Boolean {
