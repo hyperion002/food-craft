@@ -2,6 +2,7 @@ package com.example.foodcraft.bindingadapters
 
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.foodcraft.data.database.entities.FoodJokeEntity
 import com.example.foodcraft.models.FoodJoke
@@ -54,7 +55,30 @@ class FoodJokeBindings {
                     }
                 }
 
-                null -> {}
+                else -> {}
+            }
+        }
+
+        @BindingAdapter("readApiResponseError", "readDataBaseError", requireAll = true)
+        @JvmStatic
+        fun setErrorViewsVisibility(
+            view: View,
+            apiResponse: NetworkResult<FoodJoke>?,
+            database: List<FoodJokeEntity>?
+        ) {
+            if (database != null) {
+                if (database.isEmpty()) {
+                    view.visibility = View.VISIBLE
+                    if (view is TextView) {
+                        if (apiResponse != null) {
+                            view.text = apiResponse.message.toString()
+                        }
+                    }
+                }
+            }
+
+            if (apiResponse is NetworkResult.Success) {
+                view.visibility = View.INVISIBLE
             }
         }
     }
