@@ -1,14 +1,19 @@
 package com.example.foodcraft.ui.fragments.foodjoke
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.example.foodcraft.R
 import com.example.foodcraft.databinding.FragmentFoodJokeBinding
 import com.example.foodcraft.util.Constants.Companion.API_KEY
 import com.example.foodcraft.util.NetworkResult
@@ -39,6 +44,9 @@ class FoodJokeFragment : Fragment() {
             when (response) {
                 is NetworkResult.Success -> {
                     binding.textviewFoodJoke.text = response.data?.text
+                    if (response.data != null) {
+                        foodJoke = response.data.text
+                    }
                 }
                 is NetworkResult.Error -> {
                     loadFoodJokeFromCache()
@@ -55,6 +63,8 @@ class FoodJokeFragment : Fragment() {
             }
         }
 
+        setHasOptionsMenu(true)
+
         return binding.root
     }
 
@@ -63,9 +73,26 @@ class FoodJokeFragment : Fragment() {
             mainViewModel.readFoodJoke.observe(viewLifecycleOwner) { database ->
                 if (database.isNotEmpty() && database != null) {
                     binding.textviewFoodJoke.text = database[0].foodJoke.text
+                    foodJoke = database[0].foodJoke.text
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.food_joke_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.share_food_joke) {
+            val shareIntent = Intent().apply {
+                this.action = Intent.ACTION_SEND
+                this.putExtra(Intent.EXTRA_TEXT, foodJoke)
+                this.type = "text/plain"
+            }
+            startActivity(shareIntent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {
