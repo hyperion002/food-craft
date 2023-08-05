@@ -56,4 +56,5 @@
     <!--    FoodJokeFragment res-->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus purus quis sagittis pharetra. Donec vitae pulvinar dolor. Nam scelerisque eget velit nec tristique. Pellentesque quis interdum massa. Nullam molestie vestibulum nisi, ac fringilla neque pulvinar sit amet</string>
     <string name="error">Error</string>
+    <string name="share">Share</string>
 </resources>
