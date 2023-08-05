@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="mainViewModel"
             type="com.example.foodcraft.viewmodels.MainViewModel" />
@@ -17,13 +18,13 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialcardview_food_joke"
             style="?attr/materialCardViewElevatedStyle"
+            readApiResponse="@{mainViewModel.foodJokeResponse}"
+            readDatabase="@{mainViewModel.readFoodJoke}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:visibility="invisible"
-            readApiResponse="@{mainViewModel.foodJokeResponse}"
-            readDatabase="@{mainViewModel.readFoodJoke}"
             app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,17 +54,19 @@
 
         <ProgressBar
             android:id="@+id/progress_bar"
+            readApiResponse="@{mainViewModel.foodJokeResponse}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:visibility="invisible"
-            readApiResponse="@{mainViewModel.foodJokeResponse}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imageview_joke_error"
+            readApiResponseError="@{mainViewModel.foodJokeResponse}"
+            readDataBaseError="@{mainViewModel.readFoodJoke}"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:alpha="0.5"
@@ -77,6 +80,8 @@
 
         <TextView
             android:id="@+id/textview_joke_error"
+            readApiResponseError="@{mainViewModel.foodJokeResponse}"
+            readDataBaseError="@{mainViewModel.readFoodJoke}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
