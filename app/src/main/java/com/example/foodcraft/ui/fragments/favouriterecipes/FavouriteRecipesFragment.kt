@@ -52,8 +52,8 @@ class FavouriteRecipesFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         favouriteRecipesAdapter.clearContextualActionMode()
         _binding = null
     }
