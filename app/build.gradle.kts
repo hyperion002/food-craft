@@ -59,7 +59,6 @@ dependencies {
 
     // Shimmer RecyclerView
     implementation("com.facebook.shimmer:shimmer:0.5.0")
-    implementation("com.todkars:shimmer-recyclerview:0.4.1")
 
     // Gson
     implementation("com.google.code.gson:gson:2.10.1")
