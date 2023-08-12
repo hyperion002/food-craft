@@ -27,15 +27,13 @@ class FavouriteRecipesAdapter(
     ActionMode.Callback {
 
     private var favouriteRecipes = emptyList<FavouritesEntity>()
+    private var selectedRecipes = arrayListOf<FavouritesEntity>()
+    private var favouriteRecipesViewHolders = arrayListOf<FavouriteRecipesViewHolder>()
 
     private var multiSelection = false
 
     private lateinit var actionModeGlobal: ActionMode
-
     private lateinit var rootView: View
-
-    private var selectedRecipes = arrayListOf<FavouritesEntity>()
-    private var favouriteRecipesViewHolders = arrayListOf<FavouriteRecipesViewHolder>()
 
     class FavouriteRecipesViewHolder(val binding: FavouriteRecipesItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -45,22 +43,16 @@ class FavouriteRecipesAdapter(
             binding.executePendingBindings()
         }
 
-        companion object {
-            fun from(parent: ViewGroup): FavouriteRecipesViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                return FavouriteRecipesViewHolder(
-                    FavouriteRecipesItemBinding.inflate(
-                        layoutInflater,
-                        parent,
-                        false
-                    )
-                )
-            }
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteRecipesViewHolder {
-        return FavouriteRecipesViewHolder.from(parent)
+        return FavouriteRecipesViewHolder(
+            FavouriteRecipesItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int {
@@ -75,6 +67,8 @@ class FavouriteRecipesAdapter(
 
         val currentRecipe = favouriteRecipes[position]
         holder.bind(currentRecipe)
+
+        saveItemStateOnScroll(currentRecipe, holder)
 
         holder.binding.materialcardviewFavouriteRecipes.setOnClickListener {
             if (multiSelection) {
@@ -124,16 +118,21 @@ class FavouriteRecipesAdapter(
         }
     }
 
+    private fun saveItemStateOnScroll(currentRecipe: FavouritesEntity, holder: FavouriteRecipesViewHolder){
+        if (selectedRecipes.contains(currentRecipe)) {
+            changeRecipeStyle(holder, R.color.colorPrimary10, R.color.colorPrimary)
+        } else {
+            changeRecipeStyle(holder, R.color.white, R.color.stroke_color)
+        }
+    }
+
     private fun changeRecipeStyle(
         holder: FavouriteRecipesViewHolder,
         backgroundColor: Int,
         strokeColor: Int
     ) {
         holder.binding.materialcardviewFavouriteRecipes.setBackgroundColor(
-            ContextCompat.getColor(
-                requireActivity,
-                backgroundColor
-            )
+            ContextCompat.getColor(requireActivity, backgroundColor)
         )
         holder.binding.materialcardviewFavouriteRecipes.strokeColor =
             ContextCompat.getColor(requireActivity, strokeColor)
@@ -143,6 +142,7 @@ class FavouriteRecipesAdapter(
         when (selectedRecipes.size) {
             0 -> {
                 actionModeGlobal.finish()
+                multiSelection = false
             }
 
             1 -> {
@@ -180,11 +180,11 @@ class FavouriteRecipesAdapter(
     }
 
     override fun onDestroyActionMode(actionMode: ActionMode?) {
-        multiSelection = false
-        selectedRecipes.clear()
         favouriteRecipesViewHolders.forEach { holder ->
             changeRecipeStyle(holder, R.color.white, R.color.stroke_color)
         }
+        multiSelection = false
+        selectedRecipes.clear()
     }
 
     private fun showSnackBar(message: String) {
