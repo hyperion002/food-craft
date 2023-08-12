@@ -20,17 +20,16 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() 
             binding.executePendingBindings()
         }
 
-        companion object {
-            fun from(parent: ViewGroup): RecipesViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = RecipesItemBinding.inflate(layoutInflater, parent, false)
-                return RecipesViewHolder(binding)
-            }
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesViewHolder {
-        return RecipesViewHolder.from(parent)
+        return RecipesViewHolder(
+            RecipesItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int = recipes.size
