@@ -45,8 +45,8 @@
 
         <ImageView
             android:id="@+id/imageview_error"
-            readApiResponseForImage="@{mainViewModel.recipesResponse}"
-            readDatabaseForImage="@{mainViewModel.readRecipes}"
+            readApiResponse="@{mainViewModel.recipesResponse}"
+            readDatabase="@{mainViewModel.readRecipes}"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:alpha="0.5"
@@ -61,8 +61,8 @@
 
         <TextView
             android:id="@+id/textview_error"
-            readApiResponseForText="@{mainViewModel.recipesResponse}"
-            readDatabaseForText="@{mainViewModel.readRecipes}"
+            readApiResponse="@{mainViewModel.recipesResponse}"
+            readDatabase="@{mainViewModel.readRecipes}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
