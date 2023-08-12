@@ -30,6 +30,8 @@ class DetailsActivity : AppCompatActivity() {
 
     private var recipeSaved = false
     private var savedRecipeId = 0
+
+    private lateinit var menuItem: MenuItem
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
@@ -82,7 +84,7 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.details_menu, menu)
-        val menuItem = menu!!.findItem(R.id.save_to_favourites)
+        menuItem = menu!!.findItem(R.id.save_to_favourites)
         checkSavedRecipes(menuItem)
         return true
     }
@@ -130,5 +132,10 @@ class DetailsActivity : AppCompatActivity() {
             Snackbar.LENGTH_SHORT
         ).setAction("Okay") {}
             .show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        changeMenuItemColor(menuItem, R.color.white)
     }
 }

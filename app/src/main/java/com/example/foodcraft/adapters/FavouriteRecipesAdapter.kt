@@ -90,7 +90,7 @@ class FavouriteRecipesAdapter(
                 true
             } else {
                 applySelection(holder, currentRecipe)
-                false
+                true
             }
         }
     }
