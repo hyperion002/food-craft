@@ -14,6 +14,7 @@ import com.example.foodcraft.bindingadapters.RecipesItemBindings
 import com.example.foodcraft.databinding.FragmentOverviewBinding
 import com.example.foodcraft.models.Result
 import com.example.foodcraft.util.Constants.Companion.RECIPE_RESULT_BUNDLE
+import com.example.foodcraft.util.retrieveParcelable
 
 class OverviewFragment : Fragment() {
 
@@ -26,20 +27,22 @@ class OverviewFragment : Fragment() {
     ): View {
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
 
-        val recipeBundle: Result? = arguments?.getParcelable(RECIPE_RESULT_BUNDLE)
+        val recipeBundle: Result? = arguments?.retrieveParcelable(RECIPE_RESULT_BUNDLE)
 
-        binding.imageviewMain.load(recipeBundle?.image)
-        binding.textviewRecipeTitle.text = recipeBundle?.title
-        binding.textviewLikes.text = recipeBundle?.aggregateLikes.toString()
-        binding.textviewTime.text = recipeBundle?.readyInMinutes.toString()
-        RecipesItemBindings.parseHtml(binding.textviewSummary, recipeBundle?.summary)
+        if (recipeBundle != null) {
+            binding.imageviewMain.load(recipeBundle.image)
+            binding.textviewRecipeTitle.text = recipeBundle.title
+            binding.textviewLikes.text = recipeBundle.aggregateLikes.toString()
+            binding.textviewTime.text = recipeBundle.readyInMinutes.toString()
+            RecipesItemBindings.parseHtml(binding.textviewSummary, recipeBundle.summary)
 
-        setCheckColor(recipeBundle?.vegetarian, binding.imageviewVegetarianCheck, binding.textviewVegetarianCheck)
-        setCheckColor(recipeBundle?.vegan, binding.imageviewVeganCheck, binding.textviewVeganCheck)
-        setCheckColor(recipeBundle?.cheap, binding.imageviewCheap, binding.textviewCheap)
-        setCheckColor(recipeBundle?.dairyFree, binding.imageviewDairyFree, binding.textviewDairyFree)
-        setCheckColor(recipeBundle?.glutenFree, binding.imageviewGlutenFree, binding.textviewGlutenFree)
-        setCheckColor(recipeBundle?.veryHealthy, binding.imageviewHealthy, binding.textviewHealthy)
+            setCheckColor(recipeBundle.vegetarian, binding.imageviewVegetarianCheck, binding.textviewVegetarianCheck)
+            setCheckColor(recipeBundle.vegan, binding.imageviewVeganCheck, binding.textviewVeganCheck)
+            setCheckColor(recipeBundle.cheap, binding.imageviewCheap, binding.textviewCheap)
+            setCheckColor(recipeBundle.dairyFree, binding.imageviewDairyFree, binding.textviewDairyFree)
+            setCheckColor(recipeBundle.glutenFree, binding.imageviewGlutenFree, binding.textviewGlutenFree)
+            setCheckColor(recipeBundle.veryHealthy, binding.imageviewHealthy, binding.textviewHealthy)
+        }
 
         return binding.root
     }
