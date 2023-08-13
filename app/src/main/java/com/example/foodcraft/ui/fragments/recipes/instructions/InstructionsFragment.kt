@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.foodcraft.databinding.FragmentInstructionsBinding
 import com.example.foodcraft.models.Result
 import com.example.foodcraft.util.Constants
+import com.example.foodcraft.util.retrieveParcelable
 
 class InstructionsFragment : Fragment() {
 
@@ -21,7 +22,7 @@ class InstructionsFragment : Fragment() {
     ): View {
         _binding = FragmentInstructionsBinding.inflate(inflater, container, false)
 
-        val recipeBundle: Result? = arguments?.getParcelable(Constants.RECIPE_RESULT_BUNDLE)
+        val recipeBundle: Result? = arguments?.retrieveParcelable(Constants.RECIPE_RESULT_BUNDLE)
 
         if (recipeBundle != null) {
             binding.webviewInstructions.webViewClient = object : WebViewClient() {}
