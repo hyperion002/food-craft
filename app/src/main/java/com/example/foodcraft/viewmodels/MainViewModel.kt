@@ -60,7 +60,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun insertFoodJoke(foodJokeEntity: FoodJokeEntity) {
+    private fun insertFoodJoke(foodJokeEntity: FoodJokeEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertFoodJoke(foodJokeEntity)
         }
@@ -135,7 +135,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun handleFoodJokeResponse(response: Response<FoodJoke>): NetworkResult<FoodJoke>? {
+    private fun handleFoodJokeResponse(response: Response<FoodJoke>): NetworkResult<FoodJoke> {
         return when {
             response.message().toString().contains("timeout") -> {
                 NetworkResult.Error(message = "Timeout")
