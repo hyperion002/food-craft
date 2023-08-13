@@ -2,7 +2,7 @@ package com.example.foodcraft.util
 
 import androidx.recyclerview.widget.DiffUtil
 
-class GenericDiffUtil<T>(
+class DiffUtilTemplate<T>(
     private val oldLIst: List<T>,
     private val newList: List<T>
 ) : DiffUtil.Callback() {

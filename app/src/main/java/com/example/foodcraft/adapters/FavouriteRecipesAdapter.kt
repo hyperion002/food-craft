@@ -15,7 +15,7 @@ import com.example.foodcraft.R
 import com.example.foodcraft.data.database.entities.FavouritesEntity
 import com.example.foodcraft.databinding.FavouriteRecipesItemBinding
 import com.example.foodcraft.ui.fragments.favouriterecipes.FavouriteRecipesFragmentDirections
-import com.example.foodcraft.util.GenericDiffUtil
+import com.example.foodcraft.util.DiffUtilTemplate
 import com.example.foodcraft.viewmodels.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -96,7 +96,7 @@ class FavouriteRecipesAdapter(
     }
 
     fun setData(newFavouriteRecipes: List<FavouritesEntity>) {
-        val favouriteRecipesDiffUtil = GenericDiffUtil(favouriteRecipes, newFavouriteRecipes)
+        val favouriteRecipesDiffUtil = DiffUtilTemplate(favouriteRecipes, newFavouriteRecipes)
         val diffUtilResult = DiffUtil.calculateDiff(favouriteRecipesDiffUtil)
         favouriteRecipes = newFavouriteRecipes
         diffUtilResult.dispatchUpdatesTo(this)

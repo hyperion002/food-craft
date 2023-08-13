@@ -9,7 +9,7 @@ import com.example.foodcraft.R
 import com.example.foodcraft.databinding.IngredientsItemBinding
 import com.example.foodcraft.models.ExtendedIngredient
 import com.example.foodcraft.util.Constants.Companion.BASE_INGREDIENT_IMAGE_URL
-import com.example.foodcraft.util.GenericDiffUtil
+import com.example.foodcraft.util.DiffUtilTemplate
 import java.util.Locale
 
 class IngredientsAdapter : RecyclerView.Adapter<IngredientsAdapter.IngredientsViewHolder>() {
@@ -50,7 +50,7 @@ class IngredientsAdapter : RecyclerView.Adapter<IngredientsAdapter.IngredientsVi
     override fun getItemCount(): Int = ingredientsList.size
 
     fun setData(newIngredients: List<ExtendedIngredient>) {
-        val ingredientDiffUtil = GenericDiffUtil(ingredientsList, newIngredients)
+        val ingredientDiffUtil = DiffUtilTemplate(ingredientsList, newIngredients)
         val diffUtilResult = DiffUtil.calculateDiff(ingredientDiffUtil)
         ingredientsList = newIngredients
         diffUtilResult.dispatchUpdatesTo(this)

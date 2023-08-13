@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodcraft.databinding.RecipesItemBinding
 import com.example.foodcraft.models.FoodRecipe
 import com.example.foodcraft.models.Result
-import com.example.foodcraft.util.GenericDiffUtil
+import com.example.foodcraft.util.DiffUtilTemplate
 
 class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() {
 
@@ -40,8 +40,8 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() 
     }
 
     fun setData(newData: FoodRecipe) {
-        val genericDiffUtil = GenericDiffUtil(recipes, newData.results)
-        val diffUtilResult = DiffUtil.calculateDiff(genericDiffUtil)
+        val diffUtilTemplate = DiffUtilTemplate(recipes, newData.results)
+        val diffUtilResult = DiffUtil.calculateDiff(diffUtilTemplate)
         recipes = newData.results
         diffUtilResult.dispatchUpdatesTo(this)
     }
