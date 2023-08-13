@@ -10,6 +10,7 @@ import com.example.foodcraft.adapters.IngredientsAdapter
 import com.example.foodcraft.databinding.FragmentIngredientsBinding
 import com.example.foodcraft.models.Result
 import com.example.foodcraft.util.Constants.Companion.RECIPE_RESULT_BUNDLE
+import com.example.foodcraft.util.retrieveParcelable
 
 class IngredientsFragment : Fragment() {
 
@@ -23,7 +24,8 @@ class IngredientsFragment : Fragment() {
     ): View {
         _binding = FragmentIngredientsBinding.inflate(inflater, container, false)
 
-        val recipeBundle: Result? = arguments?.getParcelable(RECIPE_RESULT_BUNDLE)
+        val recipeBundle: Result? = arguments?.retrieveParcelable(RECIPE_RESULT_BUNDLE)
+
         setUpRecyclerView()
         recipeBundle?.extendedIngredients?.let { ingredientsAdapter.setData(it) }
 
