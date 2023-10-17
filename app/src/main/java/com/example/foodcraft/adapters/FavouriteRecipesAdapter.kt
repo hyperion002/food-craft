@@ -109,20 +109,20 @@ class FavouriteRecipesAdapter(
     ) {
         if (selectedRecipes.contains(currentRecipe)) {
             selectedRecipes.remove(currentRecipe)
-            changeRecipeStyle(holder, R.color.white, R.color.stroke_color)
+//            changeRecipeStyle(holder, R.color.white, R.color.stroke_color)
             applyActionModeTitle()
         } else {
             selectedRecipes.add(currentRecipe)
-            changeRecipeStyle(holder, R.color.colorPrimary10, R.color.colorPrimary)
+//            changeRecipeStyle(holder, R.color.colorPrimary10, R.color.colorPrimary)
             applyActionModeTitle()
         }
     }
 
     private fun saveItemStateOnScroll(currentRecipe: FavouritesEntity, holder: FavouriteRecipesViewHolder){
         if (selectedRecipes.contains(currentRecipe)) {
-            changeRecipeStyle(holder, R.color.colorPrimary10, R.color.colorPrimary)
+//            changeRecipeStyle(holder, R.color.colorPrimary10, R.color.colorPrimary)
         } else {
-            changeRecipeStyle(holder, R.color.white, R.color.stroke_color)
+//            changeRecipeStyle(holder, R.color.white, R.color.stroke_color)
         }
     }
 
@@ -181,7 +181,7 @@ class FavouriteRecipesAdapter(
 
     override fun onDestroyActionMode(actionMode: ActionMode?) {
         favouriteRecipesViewHolders.forEach { holder ->
-            changeRecipeStyle(holder, R.color.white, R.color.stroke_color)
+//            changeRecipeStyle(holder, R.color.white, R.color.stroke_color)
         }
         multiSelection = false
         selectedRecipes.clear()

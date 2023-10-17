@@ -104,7 +104,6 @@ class DetailsActivity : AppCompatActivity() {
     private fun removeFromFavourites(item: MenuItem) {
         val favouritesEntity = FavouritesEntity(savedRecipeId, args.result)
         mainViewModel.deleteFavouriteRecipe(favouritesEntity)
-        changeMenuItemColor(item, R.color.white)
         showSnackBar("Recipe removed favourites")
         recipeSaved = false
     }
@@ -136,10 +135,5 @@ class DetailsActivity : AppCompatActivity() {
             Snackbar.LENGTH_SHORT
         ).setAction("Okay") {}
             .show()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        changeMenuItemColor(menuItem, R.color.white)
     }
 }

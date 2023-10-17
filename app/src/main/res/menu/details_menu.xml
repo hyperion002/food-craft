@@ -8,6 +8,6 @@
         android:icon="@drawable/ic_favourite_recipes"
         android:title="@string/save_to_favourites"
         app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
+        android:iconTint="?attr/colorOnSurfaceInverse"
         tools:targetApi="o" />
 </menu>
