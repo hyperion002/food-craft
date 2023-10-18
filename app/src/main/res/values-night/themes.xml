@@ -27,5 +27,10 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
+
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.FoodCraft.HeadlineSmall</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.FoodCraft.HeadlineMedium</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.FoodCraft.BodyMedium</item>
+
     </style>
 </resources>

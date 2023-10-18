@@ -34,13 +34,14 @@ class IngredientsAdapter : RecyclerView.Adapter<IngredientsAdapter.IngredientsVi
             crossfade(600)
             error(R.drawable.ic_error_placeholder)
         }
-        holder.binding.textviewIngredientName.text =
-            ingredientsList[position].name.replaceFirstChar { firstChar ->
-                if (firstChar.isLowerCase())
-                    firstChar.titlecase(Locale.ROOT)
-                else
-                    firstChar.toString()
-            }
+        val ingredientName = ingredientsList[position].name.replaceFirstChar { firstChar ->
+            if (firstChar.isLowerCase())
+                firstChar.titlecase(Locale.ROOT)
+            else
+                firstChar.toString()
+        }
+        holder.binding.imageviewIngredient.contentDescription = ingredientName
+        holder.binding.textviewIngredientName.text = ingredientName
         holder.binding.textviewIngredientAmount.text = ingredientsList[position].amount.toString()
         holder.binding.textviewIngredientUnit.text = ingredientsList[position].unit
         holder.binding.textviewIngredientConsistency.text = ingredientsList[position].consistency

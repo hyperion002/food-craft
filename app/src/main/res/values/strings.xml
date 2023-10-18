@@ -40,7 +40,8 @@
     <!--    BottomSheet Apply Button-->
     <string name="apply">Apply</string>
     <string name="search">Search</string>
-    <!--    Attributes for DetailsActivity-->
+
+    <!--    Attributes for OverviewFragment-->
     <string name="dairy_free">Dairy Free</string>
     <string name="healthy">Healthy</string>
     <string name="cheap">Cheap</string>
@@ -57,4 +58,8 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus purus quis sagittis pharetra. Donec vitae pulvinar dolor. Nam scelerisque eget velit nec tristique. Pellentesque quis interdum massa. Nullam molestie vestibulum nisi, ac fringilla neque pulvinar sit amet</string>
     <string name="error">Error</string>
     <string name="share">Share</string>
+
+    <!-- recipes_item res -->
+    <string name="likes">Likes</string>
+    <string name="cook_time">Cook Time</string>
 </resources>

@@ -31,6 +31,7 @@ class OverviewFragment : Fragment() {
 
         if (recipeBundle != null) {
             binding.imageviewMain.load(recipeBundle.image)
+            binding.imageviewMain.contentDescription = recipeBundle.title
             binding.textviewRecipeTitle.text = recipeBundle.title
             binding.textviewLikes.text = recipeBundle.aggregateLikes.toString()
             binding.textviewTime.text = recipeBundle.readyInMinutes.toString()

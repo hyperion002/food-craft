@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.FoodCraft.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@font/courgette</item>
+    </style>
+
+    <style name="TextAppearance.FoodCraft.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/courgette</item>
+    </style>
+
+
+    <style name="TextAppearance.FoodCraft.BodyMedium" parent="TextAppearance.Material3.BodyMedium" >
+        <item name="fontFamily">@font/amarante</item>
+    </style>
+</resources>
