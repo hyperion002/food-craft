@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:checkable="true"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="10dp">
 
@@ -31,6 +32,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
@@ -65,6 +67,7 @@
                 tools:text="Delicious Sahi Paneer from Punjabi Bagh Restraunt of Ludhiana" />
 
             <ImageView
+                android:importantForAccessibility="no"
                 android:id="@+id/imageview_favourite_likes_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,6 +95,7 @@
                 tools:text="100" />
 
             <ImageView
+                android:importantForAccessibility="no"
                 android:id="@+id/imageview_favourite_cook_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,6 +118,7 @@
                 tools:text="50" />
 
             <ImageView
+                android:importantForAccessibility="no"
                 android:id="@+id/imageview_favourite_vegan"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
